@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     end
 
     def user
-
         if @user 
             render json: @user
         else 
