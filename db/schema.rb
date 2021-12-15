@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_15_142014) do
+ActiveRecord::Schema.define(version: 2021_12_15_181414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bills", force: :cascade do |t|
     t.string "title"
-    t.integer "amount_due"
+    t.money "amount_due", scale: 2
     t.integer "due_date"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.money "balance", scale: 2
+    t.decimal "interest_rate"
     t.index ["user_id"], name: "index_bills_on_user_id"
   end
 
