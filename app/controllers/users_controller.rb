@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     def user
         if @user 
-            render json: @user
+            @user
         else 
             render status: :unauthorized
         end
